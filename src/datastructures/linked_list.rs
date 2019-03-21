@@ -58,7 +58,7 @@ impl<T> LinkedList<T> {
         let mut ptr = None;
 
         for _x in i..item {
-            ptr = matc & self.head {
+            ptr = match & self.head {
                 Some(ref s) => {
                     Some(Rc::clone(s))
                 },
