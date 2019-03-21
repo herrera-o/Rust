@@ -51,6 +51,21 @@ impl<T> LinkedList<T> {
                 None => (),
             }
         }
+    }
 
+    pub fn get_item(&mut self, item: u32) -> Option<Rc<RefCell<Box<Node<T>>>>> {
+        let i = 0;
+        let mut ptr = None;
+
+        for _x in i..item {
+            ptr = matc & self.head {
+                Some(ref s) => {
+                    Some(Rc::clone(s))
+                },
+                None => return None,
+            };
+            
+            ptr
+        }
     }
 }
