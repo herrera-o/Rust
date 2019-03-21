@@ -64,9 +64,8 @@ impl<T> LinkedList<T> {
                 },
                 None => return None,
             };
-
-            ptr
         }
+        ptr
     }
 }
 
