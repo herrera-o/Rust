@@ -2,6 +2,7 @@ pub mod ciphers;
 pub mod general;
 pub mod searching;
 pub mod sorting;
+pub mod datastructures;
 
 #[cfg(test)]
 mod tests {
