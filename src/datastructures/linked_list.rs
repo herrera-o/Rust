@@ -32,4 +32,25 @@ impl<T> LinkedList<T> {
             count: 0;
         }
     }
+
+    pub fn addlast(&mut self, input: T) {
+        let newnode: Rc<RefCell<Box<Node<T>>>> = Rc::new(Node::new(input));
+
+        if self.size == 0 {
+            self.tail = Some(Rc::clone(&newnode));
+            self.head = Some(Rc::clone(&newnode));
+            self.count += 1
+        } else {
+            match &mut self.tail {
+                Some(ref mut s) => {
+                    let mut = s;
+                    (*s).next = Some(Rc::clone(&newnode));
+                    s = Some(Rc::clone(&newnode));
+                    self.count += 1;
+                },
+                None => (),
+            }
+        }
+
+    }
 }
