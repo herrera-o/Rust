@@ -53,14 +53,17 @@ impl<T> LinkedList<T> {
         }
     }
 
-    pub fn get_item(&mut self, item: u32) -> Option<Rc<RefCell<Box<Node<T>>>>> {
+    pub fn get_item(&mut self, item: isize) -> Option<Rc<RefCell<Box<Node<T>>>>> {
         let i = 0;
-        let mut ptr = None;
+        let mut ptr = Some(Rc::clone(self.head.as_ref().unwrap()));
 
-        for _x in i..item {
-            ptr = match & self.head {
+        for _x in i..item - 1 {
+            if item == 1 { return ptr }
+
+            ptr = match ptr {
                 Some(ref s) => {
-                    Some(Rc::clone(s))
+                    let mut previous = (*s).borrow();
+                    Some(Rc::clone(previous.next.as_ref().unwrap()))
                 },
                 None => return None,
             };
