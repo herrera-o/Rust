@@ -53,7 +53,7 @@ impl<T> LinkedList<T> {
         }
     }
 
-    pub fn get_item(&mut self, item: isize) -> Option<Rc<RefCell<Box<Node<T>>>>> {
+    pub fn get_index(&mut self, item: isize) -> Option<Rc<RefCell<Box<Node<T>>>>> {
         let i = 0;
         let mut ptr = Some(Rc::clone(self.head.as_ref().unwrap()));
 
@@ -77,7 +77,7 @@ mod tests {
     use datastructures::linked_list::LinkedList;
 
     #[test]
-    fn addlast_get_item() {
+    fn addlast_get_index() {
         let mut list = LinkedList::new();
 
         list.addlast(5);
@@ -88,23 +88,23 @@ mod tests {
 
         println!("Count is: {}", list.count);
 
-        let item1 = list.get_item(1);
+        let item1 = list.get_index(1);
         let item1 = item1.unwrap();
         let item1 = item1.borrow();
 
-        let item2 = list.get_item(2);
+        let item2 = list.get_index(2);
         let item2 = item2.unwrap();
         let item2 = item2.borrow();
 
-        let item3 = list.get_item(3);
+        let item3 = list.get_index(3);
         let item3 = item3.unwrap();
         let item3 = item3.borrow();
 
-        let item4 = list.get_item(4);
+        let item4 = list.get_index(4);
         let item4 = item4.unwrap();
         let item4 = item4.borrow();
 
-        let item5 = list.get_item(5);
+        let item5 = list.get_index(5);
         let item5 = item5.unwrap();
         let item5 = item5.borrow();
 
