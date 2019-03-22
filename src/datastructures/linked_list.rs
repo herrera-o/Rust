@@ -74,19 +74,44 @@ impl<T> LinkedList<T> {
 
 #[cfg(test)]
 mod tests {
+    use datastructures::linked_list::LinkedList;
+
     #[test]
     fn addlast_get_item() {
-        LinkedList list = new LinkedList();
+        let mut list = LinkedList::new();
+
         list.addlast(5);
         list.addlast(3);
         list.addlast(9);
         list.addlast(10);
         list.addlast(77);
 
+        println!("Count is: {}", list.count);
+
         let item1 = list.get_item(1);
-        let item1 = a.unwrap();
-        let item1 = a.borrow();
+        let item1 = item1.unwrap();
+        let item1 = item1.borrow();
+
+        let item2 = list.get_item(2);
+        let item2 = item2.unwrap();
+        let item2 = item2.borrow();
+
+        let item3 = list.get_item(3);
+        let item3 = item3.unwrap();
+        let item3 = item3.borrow();
+
+        let item4 = list.get_item(4);
+        let item4 = item4.unwrap();
+        let item4 = item4.borrow();
+
+        let item5 = list.get_item(5);
+        let item5 = item5.unwrap();
+        let item5 = item5.borrow();
 
         assert_eq!((*item1).data, 5);
+        assert_eq!((*item2).data, 3);
+        assert_eq!((*item3).data, 9);
+        assert_eq!((*item4).data, 10);
+        assert_eq!((*item5).data, 77);
     }
 }
