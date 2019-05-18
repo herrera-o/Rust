@@ -33,6 +33,21 @@ impl<T> LinkedList<T> {
         }
     }
 
+    pub fn addfirst(&mut self, input: T) {
+        let newnode: RefCell<Box<Node<T>>> = Node::new(input);
+
+        self.head = match &mut self.head {
+            Some(s) => {
+                let mut tmp = newnode.into_inner();
+                tmp.next = Some(Rc::clone(s));
+                Some(Rc::new(RefCell::new(tmp)))
+            },
+            None => {
+                Some(Rc::new(newnode))
+            }
+        }
+    }
+
     pub fn addlast(&mut self, input: T) {
         let newnode: Rc<RefCell<Box<Node<T>>>> = Rc::new(Node::new(input));
 
